@@ -6,6 +6,8 @@ import {
   toggleFecthAC,
   toggleEnglishAC,
   fillMoviesAC,
+  pageUpAC,
+  resetAC,
 } from "../../store/reducer";
 import HeaderApi from "./HeaderApi";
 const mapStateToProps = (state) => {
@@ -14,6 +16,7 @@ const mapStateToProps = (state) => {
     isFetching: state.isFetching,
     isEnglish: state.isEnglish,
     movieArr: state.movieArr,
+    page: state.page,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -29,6 +32,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     fillMovies: (movie) => {
       dispatch(fillMoviesAC(movie));
+    },
+    pageUp: () => {
+      dispatch(pageUpAC());
+    },
+    reset: () => {
+      dispatch(resetAC());
     },
   };
 };

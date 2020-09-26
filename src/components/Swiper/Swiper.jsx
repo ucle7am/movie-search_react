@@ -9,9 +9,9 @@ export default (props) => {
   return (
     <Swiper
       spaceBetween={50}
-      slidesPerView={3}
+      slidesPerView={10}
       onReachEnd={() => {
-        console.log("end");
+        props.getMovies();
       }}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}

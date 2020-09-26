@@ -15,7 +15,8 @@ class HeaderApi extends React.Component {
       this.props.toggleFecth(!this.props.isFetching);
       axios
         .get(
-          `https://www.omdbapi.com/?s=${this.props.inputValue}&apikey=b2dcd879`
+          `https://www.omdbapi.com/?s=${this.props.inputValue}&page=${this.props.page}&apikey=b2dcd879`
+          /*`https://www.omdbapi.com/?s=${this.props.inputValue}&apikey=b2dcd879`*/
         )
         .then((res) => {
           console.log(res);
@@ -24,10 +25,14 @@ class HeaderApi extends React.Component {
           this.fillMovieArrayId(res.data.Search).forEach((el) => {
             this.getMovieById(el).then((res) => this.props.fillMovies(res));
           });
-
+          this.props.pageUp();
           this.props.toggleFecth(!this.props.isFetching);
         });
     }
+  }
+  getNewMovies() {
+    this.props.reset();
+    this.getMovies();
   }
   getMovieById(id) {
     return axios
@@ -41,14 +46,17 @@ class HeaderApi extends React.Component {
     return (
       <div>
         <Header
-          getMovies={this.getMovies.bind(this)}
+          getMovies={this.getNewMovies.bind(this)}
           isFetching={this.props.isFetching}
           inputValue={this.props.inputValue}
           changeInput={this.props.changeInput}
           toggleFecth={this.props.toggleFecth}
           isEnglish={this.props.isEnglish}
         />
-        <Main movieArr={this.props.movieArr} />
+        <Main
+          getMovies={this.getMovies.bind(this)}
+          movieArr={this.props.movieArr}
+        />
       </div>
     );
   }

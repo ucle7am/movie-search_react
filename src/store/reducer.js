@@ -2,12 +2,15 @@ const CHANGE_INPUT_VALUE = "CHANGE_INPUT_VALUE";
 const TOGGLE_FETCH = "TOGGLE_FETCH";
 const TOGGLE_IS_ENGLISH = "TOGGLE_IS_ENGLISH";
 const FILL_MOVIE = "FILL_MOVIE";
+const PAGE_UP = "PAGE_UP";
+const RESET = "RESET";
 
 const initialState = {
   inputValue: "",
   isFetching: false,
   isEnglish: false,
   movieArr: [],
+  page: 1,
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,6 +35,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         movieArr: [...state.movieArr, action.movie],
       };
+    case PAGE_UP:
+      return {
+        ...state,
+        page: state.page++,
+      };
+    case RESET:
+      return {
+        ...state,
+        isFetching: false,
+        isEnglish: false,
+        movieArr: [],
+        page: 1,
+      };
     default:
       return state;
   }
@@ -53,4 +69,10 @@ export const toggleEnglishAC = (isEnglish) => ({
 export const fillMoviesAC = (movie) => ({
   type: FILL_MOVIE,
   movie,
+});
+export const pageUpAC = () => ({
+  type: PAGE_UP,
+});
+export const resetAC = () => ({
+  type: RESET,
 });
