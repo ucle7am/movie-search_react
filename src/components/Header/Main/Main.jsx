@@ -1,4 +1,5 @@
 import React from "react";
+import Swiper from "../../Swiper/Swiper";
 
 const Main = (props) => {
   const movieCards = props.movieArr.map((el) => {
@@ -8,6 +9,10 @@ const Main = (props) => {
       </div>
     );
   });
-  return <div>{movieCards}</div>;
+  return (
+    <div>
+      <Swiper movieCards={movieCards} />
+    </div>
+  );
 };
 export default Main;
