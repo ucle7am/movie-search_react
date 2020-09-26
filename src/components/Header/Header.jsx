@@ -18,6 +18,13 @@ const Header = (props) => {
         value={props.inputValue}
       />
       <button onClick={() => props.getMovies()}>SEARCH</button>
+      <div>
+        {props.isEnglish ? (
+          <p>shing results for movie</p>
+        ) : (
+          <p>write in english</p>
+        )}
+      </div>
     </div>
   );
 };

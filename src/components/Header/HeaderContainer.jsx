@@ -1,12 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import Header from "./Header";
-import { changeInputAC, toggleFecthAC } from "../../store/reducer";
+import {
+  changeInputAC,
+  toggleFecthAC,
+  toggleEnglishAC,
+  fillMoviesAC,
+} from "../../store/reducer";
 import HeaderApi from "./HeaderApi";
 const mapStateToProps = (state) => {
   return {
     inputValue: state.inputValue,
     isFetching: state.isFetching,
+    isEnglish: state.isEnglish,
+    movieArr: state.movieArr,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -16,6 +23,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     toggleFecth: (fetching) => {
       dispatch(toggleFecthAC(fetching));
+    },
+    toggleEnglish: (english) => {
+      dispatch(toggleEnglishAC(english));
+    },
+    fillMovies: (movie) => {
+      dispatch(fillMoviesAC(movie));
     },
   };
 };
