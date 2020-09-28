@@ -1,7 +1,6 @@
 import React from "react";
 
 const Header = (props) => {
-  console.log(props);
   let ref = React.createRef();
   const changeInput = () => {
     let text = ref.current.value;
@@ -9,7 +8,7 @@ const Header = (props) => {
   };
   return (
     <div>
-      <p>header</p>
+      <h1>movie search</h1>
       {props.isFetching ? <p>fetching</p> : <p>not fetching</p>}
       <input
         onChange={changeInput}
@@ -20,7 +19,7 @@ const Header = (props) => {
       <button onClick={() => props.getMovies()}>SEARCH</button>
       <div>
         {props.isEnglish ? (
-          <p>shing results for movie</p>
+          <p>showing results for movie '{props.inputValue}'</p>
         ) : (
           <p>write in english</p>
         )}

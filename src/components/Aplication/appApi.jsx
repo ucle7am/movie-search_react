@@ -1,7 +1,8 @@
 import React from "react";
-import Header from "./Header";
+import Header from "./Header/Header";
 import * as axios from "axios";
 import Main from "./Main/Main";
+import MainContainer from "./Main/MainContainer";
 
 class appApi extends React.Component {
   isEnglish(word) {
@@ -53,7 +54,7 @@ class appApi extends React.Component {
           toggleFecth={this.props.toggleFecth}
           isEnglish={this.props.isEnglish}
         />
-        <Main
+        <MainContainer
           getMovies={this.getMovies.bind(this)}
           movieArr={this.props.movieArr}
           totalPages={this.props.totalPages}
