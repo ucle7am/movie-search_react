@@ -1,0 +1,79 @@
+.movieCard {
+  padding: 30px;
+  display: grid;
+  grid-template-areas:
+    "name name name name"
+    "year runtime genre genre"
+    "plot plot plot plot"
+    "rating rating trailer watch";
+}
+.trailer {
+  grid-area: trailer;
+}
+.trailerLink {
+  padding: 5px;
+  font-size: 20px;
+  text-decoration: none;
+  border: 2px solid rgb(27, 131, 228);
+  color: rgb(27, 131, 228);
+}
+.watchLink {
+  padding: 5px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(27, 131, 228);
+  border: 2px solid rgb(27, 131, 228);
+}
+.watch {
+  grid-area: watch;
+}
+.movie {
+  max-width: 1100px;
+  color: #ffffff;
+  background-color: black;
+  display: flex;
+}
+.runtime {
+  font-size: 20px;
+  color: #b9b9b9;
+  grid-area: runtime;
+}
+.plot {
+  grid-area: plot;
+}
+.name {
+  font-size: 45px;
+  grid-area: name;
+}
+.year {
+  font-size: 20px;
+  color: #b9b9b9;
+  grid-area: year;
+}
+.poster {
+  width: 300px;
+  display: block;
+}
+.rating {
+  grid-area: rating;
+}
+.ratingGreen {
+  border-radius: 50%;
+  background-color: green;
+}
+.ratingYellow {
+  border-radius: 50%;
+  background-color: yellow;
+}
+.rated {
+  grid-area: rated;
+}
+.genre {
+  font-size: 20px;
+  color: #b9b9b9;
+  grid-area: genre;
+}
+.country {
+  grid-area: country;
+}
