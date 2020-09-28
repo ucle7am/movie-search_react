@@ -3,6 +3,8 @@ const TOGGLE_FETCH = "TOGGLE_FETCH";
 const TOGGLE_IS_ENGLISH = "TOGGLE_IS_ENGLISH";
 const FILL_MOVIE = "FILL_MOVIE";
 const PAGE_UP = "PAGE_UP";
+const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
+const SET_PAGE = "SET_PAGE";
 const RESET = "RESET";
 
 const initialState = {
@@ -11,6 +13,7 @@ const initialState = {
   isEnglish: false,
   movieArr: [],
   page: 1,
+  totalPages: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -40,6 +43,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         page: state.page++,
       };
+    case SET_PAGE:
+      return {
+        ...state,
+        movieArr: [],
+        page: action.page,
+      };
     case RESET:
       return {
         ...state,
@@ -47,6 +56,11 @@ const reducer = (state = initialState, action) => {
         isEnglish: false,
         movieArr: [],
         page: 1,
+      };
+    case SET_TOTAL_PAGES:
+      return {
+        ...state,
+        totalPages: Math.ceil(action.totalResults / 10),
       };
     default:
       return state;
@@ -75,4 +89,12 @@ export const pageUpAC = () => ({
 });
 export const resetAC = () => ({
   type: RESET,
+});
+export const setTotalPagesAC = (totalResults) => ({
+  type: SET_TOTAL_PAGES,
+  totalResults,
+});
+export const setPageAC = (page) => ({
+  type: SET_PAGE,
+  page,
 });

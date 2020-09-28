@@ -3,7 +3,7 @@ import Header from "./Header";
 import * as axios from "axios";
 import Main from "./Main/Main";
 
-class HeaderApi extends React.Component {
+class appApi extends React.Component {
   isEnglish(word) {
     const pattern = /^[a-zA-Z0-9$@$!%*?&#^-_. +]+$/g;
     const result = pattern.test(word);
@@ -20,12 +20,12 @@ class HeaderApi extends React.Component {
         )
         .then((res) => {
           console.log(res);
-          console.log(this.fillMovieArrayId(res.data.Search));
 
+          this.props.setTotalPages(res.data.totalResults);
           this.fillMovieArrayId(res.data.Search).forEach((el) => {
             this.getMovieById(el).then((res) => this.props.fillMovies(res));
           });
-          this.props.pageUp();
+
           this.props.toggleFecth(!this.props.isFetching);
         });
     }
@@ -56,9 +56,12 @@ class HeaderApi extends React.Component {
         <Main
           getMovies={this.getMovies.bind(this)}
           movieArr={this.props.movieArr}
+          totalPages={this.props.totalPages}
+          currentPage={this.props.page}
+          setPage={this.props.setPage}
         />
       </div>
     );
   }
 }
-export default HeaderApi;
+export default appApi;

@@ -1,6 +1,4 @@
-import React from "react";
 import { connect } from "react-redux";
-import Header from "./Header";
 import {
   changeInputAC,
   toggleFecthAC,
@@ -8,8 +6,10 @@ import {
   fillMoviesAC,
   pageUpAC,
   resetAC,
+  setTotalPagesAC,
+  setPageAC,
 } from "../../store/reducer";
-import HeaderApi from "./HeaderApi";
+import appApi from "./appApi";
 const mapStateToProps = (state) => {
   return {
     inputValue: state.inputValue,
@@ -17,6 +17,7 @@ const mapStateToProps = (state) => {
     isEnglish: state.isEnglish,
     movieArr: state.movieArr,
     page: state.page,
+    totalPages: state.totalPages,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -39,7 +40,13 @@ const mapDispatchToProps = (dispatch) => {
     reset: () => {
       dispatch(resetAC());
     },
+    setTotalPages: (pages) => {
+      dispatch(setTotalPagesAC(pages));
+    },
+    setPage: (page) => {
+      dispatch(setPageAC(page));
+    },
   };
 };
-const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(HeaderApi);
-export default HeaderContainer;
+const AppContainer = connect(mapStateToProps, mapDispatchToProps)(appApi);
+export default AppContainer;
