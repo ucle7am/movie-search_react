@@ -1,0 +1,41 @@
+.header {
+  background-color: black;
+  padding: 20px;
+  color: #fff;
+  display: grid;
+  grid-template-areas:
+    "h1 h1 h1 h1"
+    "fetch input input search"
+    "results results results results";
+}
+.h1 {
+  grid-area: h1;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+.fetch {
+  grid-area: fetch;
+}
+.input {
+  font-size: 25px;
+  padding-left: 15px;
+  grid-area: input;
+  border: none;
+  outline: none;
+}
+.search {
+  color: #fff;
+  font-size: 25px;
+  grid-area: search;
+  background-color: rgb(27, 131, 228);
+  border: none;
+}
+.results {
+  font-size: 30px;
+  grid-area: results;
+}
+.search:hover {
+  cursor: pointer;
+  background-color: rgb(0, 132, 255);
+}

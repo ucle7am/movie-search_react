@@ -4,7 +4,7 @@ import HeaderContainer from "./components/Aplication/AppContainer";
 
 const App = (props) => {
   return (
-    <div>
+    <div className="container">
       <HeaderContainer />
     </div>
   );
