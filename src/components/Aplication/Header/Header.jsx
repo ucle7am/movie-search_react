@@ -11,9 +11,9 @@ const Header = (props) => {
     <div className={styles.header}>
       <h1 className={styles.h1}>movie search</h1>
       {props.isFetching ? (
-        <p className={styles.fetch}>fetching</p>
+        <p className={styles.loader}></p>
       ) : (
-        <p className={styles.fetch}>not fetching</p>
+        <p className={styles.loader} style={{ visibility: "hidden" }}></p>
       )}
       <input
         className={styles.input}
