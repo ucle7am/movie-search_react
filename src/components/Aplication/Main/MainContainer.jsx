@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import Main from "./Main";
 const Red = {
@@ -21,6 +20,26 @@ class MainContainer extends React.Component {
   };
   paginationAllPages() {
     let allPages = [];
+    const start = (
+      <button
+        onClick={() => {
+          this.props.setPage(1);
+          this.props.getMovies();
+        }}
+      >
+        start
+      </button>
+    );
+    const end = (
+      <button
+        onClick={() => {
+          this.props.setPage(this.props.totalPages);
+          this.props.getMovies();
+        }}
+      >
+        end
+      </button>
+    );
     for (let i = 1; i <= this.props.totalPages; i++) {
       allPages.push(
         <button
@@ -35,8 +54,9 @@ class MainContainer extends React.Component {
         </button>
       );
     }
-
-    return this.pagination(allPages, this.props.currentPage);
+    return this.props.totalPages
+      ? [start, ...this.pagination(allPages, this.props.currentPage), end]
+      : [];
   }
 
   render() {

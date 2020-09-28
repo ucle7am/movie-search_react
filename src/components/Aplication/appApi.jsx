@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header/Header";
 import * as axios from "axios";
-import Main from "./Main/Main";
 import MainContainer from "./Main/MainContainer";
 
 class appApi extends React.Component {
