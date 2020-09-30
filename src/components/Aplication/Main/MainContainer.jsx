@@ -12,8 +12,6 @@ class MainContainer extends React.Component {
     if (current > arr.length - 4) {
       return arr.slice(arr.length - 5, arr.length);
     }
-    console.log("no res");
-    console.log(current);
   }
   paginationAllPages() {
     let allPages = [];
@@ -55,7 +53,6 @@ class MainContainer extends React.Component {
         </button>
       );
     }
-    console.log(allPages);
     return this.props.totalPages
       ? [start, ...this.pagination(allPages, this.props.currentPage), end]
       : [];

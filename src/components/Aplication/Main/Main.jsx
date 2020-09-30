@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Main.module.css";
-import imdbLogo from "../../../assets/imdb.png";
 import noPoster from "../../../assets/NoPoster.png";
 
 const Main = (props) => {
@@ -32,6 +31,7 @@ const Main = (props) => {
           </p>
           <div className={styles.trailer}>
             <a
+              rel="noopener noreferrer"
               className={styles.trailerLink}
               target="_blank"
               href={`https://www.youtube.com/results?search_query=${el.Title}+${el.Year}+trailer`}
@@ -41,6 +41,7 @@ const Main = (props) => {
           </div>
           <div className={styles.watch}>
             <a
+              rel="noopener noreferrer"
               className={styles.watchLink}
               target="_blank"
               href={`https://www.imdb.com/title/${el.imdbID}`}

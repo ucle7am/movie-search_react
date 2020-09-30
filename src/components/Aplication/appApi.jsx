@@ -18,7 +18,6 @@ class appApi extends React.Component {
           `https://www.omdbapi.com/?s=${this.props.inputValue}&page=${page}&apikey=b2dcd879`
         )
         .then((res) => {
-          console.log(res);
           if (res.data.Response === "True") {
             this.props.setResponse(true, "");
             this.props.setTotalPages(+res.data.totalResults);
@@ -46,7 +45,6 @@ class appApi extends React.Component {
     return arr.map((el) => el.imdbID);
   }
   render() {
-    console.log(this.props.page);
     return (
       <div>
         <Header
