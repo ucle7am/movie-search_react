@@ -1,15 +1,18 @@
 import React from "react";
 import styles from "./Main.module.css";
 import imdbLogo from "../../../assets/imdb.png";
-import pgLogo from "../../../assets/PG.png";
+import noPoster from "../../../assets/NoPoster.png";
 
 const Main = (props) => {
-  console.log(props);
   const movieCards = props.movieArr.map((el) => {
     return (
       <div className={styles.movie}>
         <div>
-          <img className={styles.poster} src={el.Poster} alt="no poster" />
+          <img
+            className={styles.poster}
+            src={el.Poster !== "N/A" ? el.Poster : noPoster}
+            alt="..."
+          />
         </div>
         <div className={styles.movieCard}>
           <p className={styles.name}>{el.Title}</p>
@@ -52,7 +55,7 @@ const Main = (props) => {
   return (
     <div>
       <div>{movieCards}</div>
-      <div>{props.pages}</div>
+      <div className={styles.pagesContainer}>{props.pages}</div>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import {
   resetAC,
   setTotalPagesAC,
   setPageAC,
+  setResponseAC,
 } from "../../store/reducer";
 import appApi from "./appApi";
 const mapStateToProps = (state) => {
@@ -18,6 +19,8 @@ const mapStateToProps = (state) => {
     movieArr: state.movieArr,
     page: state.page,
     totalPages: state.totalPages,
+    isResponse: state.isResponse,
+    error: state.error,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -45,6 +48,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setPage: (page) => {
       dispatch(setPageAC(page));
+    },
+    setResponse: (response, error) => {
+      dispatch(setResponseAC(response, error));
     },
   };
 };

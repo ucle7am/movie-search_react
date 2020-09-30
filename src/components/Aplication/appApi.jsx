@@ -10,21 +10,24 @@ class appApi extends React.Component {
     this.props.toggleEnglish(result);
     return result;
   }
-  getMovies() {
+  getMovies(page) {
     if (this.isEnglish(this.props.inputValue)) {
       this.props.toggleFecth(!this.props.isFetching);
       axios
         .get(
-          `https://www.omdbapi.com/?s=${this.props.inputValue}&page=${this.props.page}&apikey=b2dcd879`
-          /*`https://www.omdbapi.com/?s=${this.props.inputValue}&apikey=b2dcd879`*/
+          `https://www.omdbapi.com/?s=${this.props.inputValue}&page=${page}&apikey=b2dcd879`
         )
         .then((res) => {
           console.log(res);
-
-          this.props.setTotalPages(res.data.totalResults);
-          this.fillMovieArrayId(res.data.Search).forEach((el) => {
-            this.getMovieById(el).then((res) => this.props.fillMovies(res));
-          });
+          if (res.data.Response === "True") {
+            this.props.setResponse(true, "");
+            this.props.setTotalPages(+res.data.totalResults);
+            this.fillMovieArrayId(res.data.Search).forEach((el) => {
+              this.getMovieById(el).then((res) => this.props.fillMovies(res));
+            });
+          } else {
+            this.props.setResponse(false, res.data.Error);
+          }
 
           this.props.toggleFecth(!this.props.isFetching);
         });
@@ -32,7 +35,7 @@ class appApi extends React.Component {
   }
   getNewMovies() {
     this.props.reset();
-    this.getMovies();
+    this.getMovies(1);
   }
   getMovieById(id) {
     return axios
@@ -43,9 +46,12 @@ class appApi extends React.Component {
     return arr.map((el) => el.imdbID);
   }
   render() {
+    console.log(this.props.page);
     return (
       <div>
         <Header
+          isResponse={this.props.isResponse}
+          error={this.props.error}
           getMovies={this.getNewMovies.bind(this)}
           isFetching={this.props.isFetching}
           inputValue={this.props.inputValue}

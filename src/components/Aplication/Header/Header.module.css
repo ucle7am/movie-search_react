@@ -31,6 +31,7 @@
   grid-area: search;
   background-color: rgb(27, 131, 228);
   border: none;
+  outline: none;
 }
 .results {
   font-size: 30px;

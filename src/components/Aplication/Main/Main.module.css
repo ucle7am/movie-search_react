@@ -106,3 +106,35 @@
 .country {
   grid-area: country;
 }
+.pagesContainer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: black;
+}
+.button {
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 29px;
+  margin: 10px;
+  color: #fff;
+  border: 2px solid rgb(27, 131, 228);
+  background-color: inherit;
+}
+.buttonActive {
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 29px;
+  margin: 10px;
+  color: #fff;
+  border: 2px solid rgb(27, 131, 228);
+  background-color: rgb(27, 131, 228);
+  transform: scale(1.2);
+}
+.button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  border: 2px solid rgb(27, 131, 228);
+  background-color: rgb(27, 131, 228);
+}

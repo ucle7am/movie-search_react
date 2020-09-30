@@ -31,6 +31,7 @@ const Header = (props) => {
         ) : (
           <p>write in english</p>
         )}
+        {!props.isResponse ? <p>{props.error}</p> : <p></p>}
       </div>
     </div>
   );

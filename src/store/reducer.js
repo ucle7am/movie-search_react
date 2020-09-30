@@ -6,11 +6,14 @@ const PAGE_UP = "PAGE_UP";
 const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
 const SET_PAGE = "SET_PAGE";
 const RESET = "RESET";
+const TOGGLE_RESPONSE = "TOGGLE_RESPONSE";
 
 const initialState = {
   inputValue: "",
   isFetching: false,
   isEnglish: false,
+  isResponse: "",
+  error: "",
   movieArr: [],
   page: 1,
   totalPages: 0,
@@ -22,6 +25,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         inputValue: action.value,
+      };
+    case TOGGLE_RESPONSE:
+      return {
+        ...state,
+        isResponse: action.response,
+        error: action.error,
       };
     case TOGGLE_FETCH:
       return {
@@ -97,4 +106,9 @@ export const setTotalPagesAC = (totalResults) => ({
 export const setPageAC = (page) => ({
   type: SET_PAGE,
   page,
+});
+export const setResponseAC = (response, error) => ({
+  type: TOGGLE_RESPONSE,
+  response,
+  error,
 });
