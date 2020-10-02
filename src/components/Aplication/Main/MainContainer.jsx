@@ -60,13 +60,7 @@ class MainContainer extends React.Component {
 
   render() {
     return (
-      <Main
-        movieArr={this.props.movieArr}
-        pages={this.paginationAllPages()}
-        currentPage={this.props.currentPage}
-        getMovies={this.props.getMovies}
-        setPage={this.props.setPage}
-      />
+      <Main movieArr={this.props.movieArr} pages={this.paginationAllPages()} />
     );
   }
 }

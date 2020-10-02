@@ -3,8 +3,7 @@ import {
   changeInputAC,
   toggleFecthAC,
   toggleEnglishAC,
-  fillMoviesAC,
-  pageUpAC,
+  addMovieToStateAC,
   resetAC,
   setTotalPagesAC,
   setPageAC,
@@ -19,7 +18,7 @@ const mapStateToProps = (state) => {
     movieArr: state.movieArr,
     page: state.page,
     totalPages: state.totalPages,
-    isResponse: state.isResponse,
+    hasResponse: state.hasResponse,
     error: state.error,
   };
 };
@@ -34,11 +33,8 @@ const mapDispatchToProps = (dispatch) => {
     toggleEnglish: (english) => {
       dispatch(toggleEnglishAC(english));
     },
-    fillMovies: (movie) => {
-      dispatch(fillMoviesAC(movie));
-    },
-    pageUp: () => {
-      dispatch(pageUpAC());
+    addMovieToState: (movie) => {
+      dispatch(addMovieToStateAC(movie));
     },
     reset: () => {
       dispatch(resetAC());

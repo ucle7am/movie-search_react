@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./Main.module.css";
 import noPoster from "../../../assets/NoPoster.png";
 
-const Main = (props) => {
-  const movieCards = props.movieArr.map((el) => {
+const Main = ({ movieArr, pages }) => {
+  const movieCards = movieArr.map((el) => {
     return (
       <div className={styles.movie}>
         <div>
@@ -56,7 +56,7 @@ const Main = (props) => {
   return (
     <div>
       <div className={styles.moviesContainer}>{movieCards}</div>
-      <div className={styles.pagesContainer}>{props.pages}</div>
+      <div className={styles.pagesContainer}>{pages}</div>
     </div>
   );
 };

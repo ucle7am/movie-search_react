@@ -1,8 +1,7 @@
 const CHANGE_INPUT_VALUE = "CHANGE_INPUT_VALUE";
 const TOGGLE_FETCH = "TOGGLE_FETCH";
 const TOGGLE_IS_ENGLISH = "TOGGLE_IS_ENGLISH";
-const FILL_MOVIE = "FILL_MOVIE";
-const PAGE_UP = "PAGE_UP";
+const ADD_MOVIE = "ADD_MOVIE";
 const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
 const SET_PAGE = "SET_PAGE";
 const RESET = "RESET";
@@ -12,7 +11,7 @@ const initialState = {
   inputValue: "",
   isFetching: false,
   isEnglish: false,
-  isResponse: "",
+  hasResponse: "",
   error: "",
   movieArr: [],
   page: 1,
@@ -29,7 +28,7 @@ const reducer = (state = initialState, action) => {
     case TOGGLE_RESPONSE:
       return {
         ...state,
-        isResponse: action.response,
+        hasResponse: action.response,
         error: action.error,
       };
     case TOGGLE_FETCH:
@@ -42,15 +41,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         isEnglish: action.isEnglish,
       };
-    case FILL_MOVIE:
+    case ADD_MOVIE:
       return {
         ...state,
         movieArr: [...state.movieArr, action.movie],
-      };
-    case PAGE_UP:
-      return {
-        ...state,
-        page: state.page++,
       };
     case SET_PAGE:
       return {
@@ -89,12 +83,9 @@ export const toggleEnglishAC = (isEnglish) => ({
   type: TOGGLE_IS_ENGLISH,
   isEnglish,
 });
-export const fillMoviesAC = (movie) => ({
-  type: FILL_MOVIE,
+export const addMovieToStateAC = (movie) => ({
+  type: ADD_MOVIE,
   movie,
-});
-export const pageUpAC = () => ({
-  type: PAGE_UP,
 });
 export const resetAC = () => ({
   type: RESET,

@@ -6,7 +6,8 @@
   grid-template-areas:
     "fetch h1 h1 h1"
     "fetch input input search"
-    "results results results results";
+    "results results results results"
+    "error error error error";
   box-shadow: 3px 37px 10px -23px rgba(0, 0, 0, 0.75);
 }
 .h1 {
@@ -40,6 +41,10 @@
 .search:hover {
   cursor: pointer;
   background-color: rgb(0, 132, 255);
+}
+.error {
+  font-size: 30px;
+  grid-area: error;
 }
 
 .loader,

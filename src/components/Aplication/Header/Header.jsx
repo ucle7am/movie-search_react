@@ -1,38 +1,52 @@
 import React from "react";
 import styles from "./Header.module.css";
 
-const Header = (props) => {
+const Header = ({
+  hasResponse,
+  error,
+  getMovies,
+  isFetching,
+  inputValue,
+  changeInput,
+  isEnglish,
+}) => {
   let ref = React.createRef();
-  const changeInput = () => {
+  const onChangeInput = () => {
     let text = ref.current.value;
-    props.changeInput(text);
+    changeInput(text);
   };
   return (
     <div className={styles.header}>
       <h1 className={styles.h1}>movie search</h1>
-      {props.isFetching ? (
+      {isFetching ? (
         <p className={styles.loader}></p>
       ) : (
         <p className={styles.loader} style={{ visibility: "hidden" }}></p>
       )}
       <input
+        maxLength={39}
         className={styles.input}
-        onChange={changeInput}
+        onChange={onChangeInput}
         ref={ref}
         type="text"
-        value={props.inputValue}
+        value={inputValue}
       />
-      <button className={styles.search} onClick={() => props.getMovies()}>
+      <button className={styles.search} onClick={() => getMovies()}>
         SEARCH
       </button>
-      <div className={styles.results}>
-        {props.isEnglish ? (
-          <p>showing results for movie '{props.inputValue}'</p>
-        ) : (
-          <p>write in english</p>
-        )}
-        {!props.isResponse ? <p>{props.error}</p> : <p></p>}
-      </div>
+      {!hasResponse ? (
+        <div className={styles.error}>
+          <p>{error}</p>
+        </div>
+      ) : (
+        <div className={styles.results}>
+          {isEnglish ? (
+            <p>showing results for movie '{inputValue}'</p>
+          ) : (
+            <p>write in english</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

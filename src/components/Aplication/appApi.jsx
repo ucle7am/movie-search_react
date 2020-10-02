@@ -21,8 +21,10 @@ class appApi extends React.Component {
           if (res.data.Response === "True") {
             this.props.setResponse(true, "");
             this.props.setTotalPages(+res.data.totalResults);
-            this.fillMovieArrayId(res.data.Search).forEach((el) => {
-              this.getMovieById(el).then((res) => this.props.fillMovies(res));
+            this.fillArrayMoviesId(res.data.Search).forEach((el) => {
+              this.getMovieById(el).then((res) =>
+                this.props.addMovieToState(res)
+              );
             });
           } else {
             this.props.setResponse(false, res.data.Error);
@@ -41,20 +43,19 @@ class appApi extends React.Component {
       .get(`https://www.omdbapi.com/?i=${id}&apikey=b2dcd879`)
       .then((res) => res.data);
   }
-  fillMovieArrayId(arr) {
+  fillArrayMoviesId(arr) {
     return arr.map((el) => el.imdbID);
   }
   render() {
     return (
       <div>
         <Header
-          isResponse={this.props.isResponse}
+          hasResponse={this.props.hasResponse}
           error={this.props.error}
           getMovies={this.getNewMovies.bind(this)}
           isFetching={this.props.isFetching}
           inputValue={this.props.inputValue}
           changeInput={this.props.changeInput}
-          toggleFecth={this.props.toggleFecth}
           isEnglish={this.props.isEnglish}
         />
         <MainContainer
