@@ -55,7 +55,7 @@ const Main = (props) => {
   });
   return (
     <div>
-      <div>{movieCards}</div>
+      <div className={styles.moviesContainer}>{movieCards}</div>
       <div className={styles.pagesContainer}>{props.pages}</div>
     </div>
   );

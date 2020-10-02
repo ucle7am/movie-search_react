@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import HeaderContainer from "./components/Aplication/AppContainer";
+import AppContainer from "./components/Aplication/AppContainer";
 
 const App = () => {
   return (
     <div className="container">
-      <HeaderContainer />
+      <AppContainer />
     </div>
   );
 };

@@ -138,3 +138,8 @@
   border: 2px solid rgb(27, 131, 228);
   background-color: rgb(27, 131, 228);
 }
+.moviesContainer {
+  height: 49vh;
+  overflow: auto;
+  width: 1130px;
+}
