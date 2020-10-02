@@ -15,6 +15,11 @@ const Header = ({
     let text = ref.current.value;
     changeInput(text);
   };
+  const onKeyUp = (e) => {
+    if (e.keyCode === 13) {
+      getMovies();
+    }
+  };
   return (
     <div className={styles.header}>
       <h1 className={styles.h1}>movie search</h1>
@@ -24,6 +29,7 @@ const Header = ({
         <p className={styles.loader} style={{ visibility: "hidden" }}></p>
       )}
       <input
+        onKeyUp={onKeyUp}
         maxLength={39}
         className={styles.input}
         onChange={onChangeInput}
