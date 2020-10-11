@@ -1,13 +1,8 @@
 import { connect } from "react-redux";
 import {
   changeInputAC,
-  toggleFecthAC,
-  toggleEnglishAC,
-  addMovieToStateAC,
   resetAC,
-  setTotalPagesAC,
   setPageAC,
-  setResponseAC,
   getMoviesThunkCreator,
   setCurrentSearchAC,
 } from "./store/reducer";
@@ -30,26 +25,11 @@ const mapDispatchToProps = (dispatch) => {
     changeInput: (text) => {
       dispatch(changeInputAC(text));
     },
-    toggleFecth: (fetching) => {
-      dispatch(toggleFecthAC(fetching));
-    },
-    toggleEnglish: (english) => {
-      dispatch(toggleEnglishAC(english));
-    },
-    addMovieToState: (movie) => {
-      dispatch(addMovieToStateAC(movie));
-    },
     reset: () => {
       dispatch(resetAC());
     },
-    setTotalPages: (pages) => {
-      dispatch(setTotalPagesAC(pages));
-    },
     setPage: (page) => {
       dispatch(setPageAC(page));
-    },
-    setResponse: (response, error) => {
-      dispatch(setResponseAC(response, error));
     },
     getMovies: (movie, page) => {
       dispatch(getMoviesThunkCreator(movie, page));
