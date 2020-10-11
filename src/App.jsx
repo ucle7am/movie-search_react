@@ -4,7 +4,6 @@ import Main from "./screens/Main";
 import SearchBar from "./components/SearchBar/SearchBar";
 
 const App = (props) => {
-  console.log(props);
   return (
     <div className="container">
       <SearchBar {...props} />
