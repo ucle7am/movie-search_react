@@ -6,6 +6,8 @@ const Input = ({ changeInput, inputValue }) => {
   };
   return (
     <input
+      placeholder="Write in English"
+      pattern={"^[a-zA-Z0-9$@$!%*?&#^-_. +]+$"}
       value={inputValue}
       onChange={change}
       maxLength={39}

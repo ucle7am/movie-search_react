@@ -40,12 +40,14 @@ class Pagination extends React.Component {
       allPages.push(
         <button
           className={
-            this.props.currentPage === i ? styles.buttonActive : styles.button
+            this.props.page === i ? styles.buttonActive : styles.button
           }
           key={i}
           onClick={() => {
-            this.props.setPage(i);
-            this.props.getMovies(i);
+            if (this.props.page !== i) {
+              this.props.setPage(i);
+              this.props.getMovies(i);
+            }
           }}
         >
           {i}
@@ -53,11 +55,13 @@ class Pagination extends React.Component {
       );
     }
     return this.props.totalPages
-      ? [start, ...this.pagination(allPages, this.props.currentPage), end]
+      ? [start, ...this.currentPagination(allPages, this.props.page), end]
       : [];
   }
   render() {
-    return <div>{this.paginationAllPages()}</div>;
+    return (
+      <div className={styles.pagesContainer}>{this.paginationAllPages()}</div>
+    );
   }
 }
 export default Pagination;

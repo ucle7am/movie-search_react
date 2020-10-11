@@ -3,10 +3,10 @@
   padding: 30px;
   display: grid;
   grid-template-areas:
-    "name name name name"
-    "year runtime genre genre"
-    "plot plot plot plot"
-    "rating rating trailer watch";
+    "name name name name name"
+    "year runtime genre genre genre"
+    "plot plot plot plot plot"
+    "rating trailer trailer watch watch";
 }
 .trailer {
   grid-area: trailer;
@@ -79,6 +79,7 @@
   grid-area: rating;
   display: block;
   font-size: 20px;
+  padding-top: 25px;
 }
 .ratingGreen {
   padding: 4px;
@@ -102,4 +103,7 @@
 }
 .country {
   grid-area: country;
+}
+.loading {
+  margin: 140px 80px;
 }

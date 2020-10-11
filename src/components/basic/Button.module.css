@@ -4,4 +4,10 @@
   background-color: rgb(27, 131, 228);
   border: none;
   outline: none;
+  padding: 8px;
+  width: 20%;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(0, 140, 255);
 }

@@ -21,6 +21,8 @@
 }
 .form {
   grid-area: form;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .input {
   font-size: 25px;

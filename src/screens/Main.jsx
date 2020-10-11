@@ -6,8 +6,14 @@ import Pagination from "../components/Pagination/Pagination";
 const Main = (props) => {
   return (
     <div>
-      <MovieList {...props} />
-      <Pagination />
+      {props.hasResponse && !props.isFetching ? (
+        <>
+          <MovieList {...props} />
+          <Pagination {...props} />
+        </>
+      ) : (
+        <p className={styles.error}>{props.error}</p>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./MovieCard.module.css";
 import noPoster from "../../assets/NoPoster.png";
+import LoadingSpinner from "../basic/LoadingSpinner";
 
 const MovieCard = ({
   Poster,
@@ -12,14 +13,23 @@ const MovieCard = ({
   imdbRating,
   imdbID,
 }) => {
+  const [loaded, setLoaded] = useState(false);
   return (
     <div className={styles.movie}>
       <div>
         <img
+          style={loaded ? {} : { display: "none" }}
+          onLoad={() => setLoaded(true)}
           className={styles.poster}
           src={Poster !== "N/A" ? Poster : noPoster}
           alt="..."
         />
+        <div
+          style={!loaded ? {} : { display: "none" }}
+          className={styles.loading}
+        >
+          <LoadingSpinner />
+        </div>
       </div>
       <div className={styles.movieCard}>
         <p className={styles.name}>{Title}</p>
