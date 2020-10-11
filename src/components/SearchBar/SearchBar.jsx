@@ -3,10 +3,17 @@ import Button from "../basic/Button";
 import Input from "../basic/Input";
 import LoadingSpinner from "../basic/LoadingSpinner";
 import styles from "./SearchBar.module.css";
-const SearchBar = ({ isFetching, changeInput, inputValue, getNewMovies }) => {
+const SearchBar = ({
+  isFetching,
+  changeInput,
+  inputValue,
+  getNewMovies,
+  setCurrentSearch,
+}) => {
   const submit = (e) => {
     e.preventDefault();
-    getNewMovies();
+    setCurrentSearch(inputValue);
+    getNewMovies(inputValue);
   };
   return (
     <header className={styles.header}>

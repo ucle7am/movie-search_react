@@ -9,6 +9,7 @@ import {
   setPageAC,
   setResponseAC,
   getMoviesThunkCreator,
+  setCurrentSearchAC,
 } from "./store/reducer";
 import AppApi from "./AppApi";
 const mapStateToProps = (state) => {
@@ -21,6 +22,7 @@ const mapStateToProps = (state) => {
     totalPages: state.totalPages,
     hasResponse: state.hasResponse,
     error: state.error,
+    current: state.currentSearch,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -51,6 +53,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getMovies: (movie, page) => {
       dispatch(getMoviesThunkCreator(movie, page));
+    },
+    setCurrentSearch: (value) => {
+      dispatch(setCurrentSearchAC(value));
     },
   };
 };

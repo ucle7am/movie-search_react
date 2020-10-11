@@ -11,8 +11,10 @@ const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
 const SET_PAGE = "SET_PAGE";
 const RESET = "RESET";
 const TOGGLE_RESPONSE = "TOGGLE_RESPONSE";
+const SET_CURRENT_SEARCH = "SET_CURRENT_SEARCH";
 const initialState = {
   inputValue: "",
+  currentSearch: "",
   isFetching: false,
   isEnglish: false,
   hasResponse: "",
@@ -34,6 +36,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         hasResponse: action.response,
         error: action.error,
+      };
+    case SET_CURRENT_SEARCH:
+      return {
+        ...state,
+        currentSearch: action.value,
       };
     case TOGGLE_FETCH:
       return {
@@ -94,9 +101,12 @@ export const getMoviesThunkCreator = (movie, page) => {
     });
   };
 };
-
 export const changeInputAC = (value) => ({
   type: CHANGE_INPUT_VALUE,
+  value,
+});
+export const setCurrentSearchAC = (value) => ({
+  type: SET_CURRENT_SEARCH,
   value,
 });
 export const toggleFecthAC = (fetching) => ({

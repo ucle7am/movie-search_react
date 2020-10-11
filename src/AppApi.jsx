@@ -24,15 +24,15 @@ class AppApi extends React.Component {
       this.props.toggleFecth(!this.props.isFetching);
     });
   }*/
-  getNewMovies() {
+  getNewMovies(value) {
     this.props.reset();
-    this.props.getMovies(this.props.inputValue, 1);
+    this.props.getMovies(value, 1);
   }
   render() {
     return (
       <App
         {...this.props}
-        getMovies={(page) => this.props.getMovies(this.props.inputValue, page)}
+        getMovies={(page) => this.props.getMovies(this.props.current, page)}
         getNewMovies={this.getNewMovies.bind(this)}
       />
     );
