@@ -1,16 +1,20 @@
 import React from "react";
 import * as axios from "axios";
 import App from "./App";
-import { getMovies, getMovieById } from "./service/ajaxRequests";
+import {
+  getMovies,
+  getMovieById,
+  fillArrayMoviesId,
+} from "./service/ajaxRequests";
 
 class AppApi extends React.Component {
-  startSearch(page) {
+  /*startSearch(page) {
     this.props.toggleFecth(!this.props.isFetching);
     getMovies(this.props.inputValue, page).then((res) => {
       if (res.Response === "True") {
         this.props.setResponse(true, "");
         this.props.setTotalPages(+res.totalResults);
-        this.fillArrayMoviesId(res.Search).forEach((el) => {
+        fillArrayMoviesId(res.Search).forEach((el) => {
           getMovieById(el).then((res) => this.props.addMovieToState(res));
         });
       } else {
@@ -19,19 +23,16 @@ class AppApi extends React.Component {
 
       this.props.toggleFecth(!this.props.isFetching);
     });
-  }
+  }*/
   getNewMovies() {
     this.props.reset();
-    this.startSearch(1);
-  }
-  fillArrayMoviesId(arr) {
-    return arr.map((el) => el.imdbID);
+    this.props.getMovies(this.props.inputValue, 1);
   }
   render() {
     return (
       <App
         {...this.props}
-        getMovies={this.startSearch.bind(this)}
+        getMovies={(page) => this.props.getMovies(this.props.inputValue, page)}
         getNewMovies={this.getNewMovies.bind(this)}
       />
     );

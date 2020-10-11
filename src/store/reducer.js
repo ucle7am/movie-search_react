@@ -1,3 +1,8 @@
+import {
+  getMovies,
+  getMovieById,
+  fillArrayMoviesId,
+} from "../service/ajaxRequests";
 const CHANGE_INPUT_VALUE = "CHANGE_INPUT_VALUE";
 const TOGGLE_FETCH = "TOGGLE_FETCH";
 const TOGGLE_IS_ENGLISH = "TOGGLE_IS_ENGLISH";
@@ -6,7 +11,6 @@ const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
 const SET_PAGE = "SET_PAGE";
 const RESET = "RESET";
 const TOGGLE_RESPONSE = "TOGGLE_RESPONSE";
-
 const initialState = {
   inputValue: "",
   isFetching: false,
@@ -71,6 +75,26 @@ const reducer = (state = initialState, action) => {
 };
 
 export default reducer;
+
+export const getMoviesThunkCreator = (movie, page) => {
+  return (dispatch) => {
+    dispatch(toggleFecthAC(true));
+    getMovies(movie, page).then((res) => {
+      if (res.Response === "True") {
+        dispatch(setResponseAC(true, ""));
+        dispatch(setTotalPagesAC(+res.totalResults));
+        fillArrayMoviesId(res.Search).forEach((el) => {
+          getMovieById(el).then((res) => dispatch(addMovieToStateAC(res)));
+        });
+      } else {
+        dispatch(setResponseAC(false, res.Error));
+      }
+
+      dispatch(toggleFecthAC(false));
+    });
+  };
+};
+
 export const changeInputAC = (value) => ({
   type: CHANGE_INPUT_VALUE,
   value,

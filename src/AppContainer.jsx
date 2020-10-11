@@ -8,6 +8,7 @@ import {
   setTotalPagesAC,
   setPageAC,
   setResponseAC,
+  getMoviesThunkCreator,
 } from "./store/reducer";
 import AppApi from "./AppApi";
 const mapStateToProps = (state) => {
@@ -47,6 +48,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setResponse: (response, error) => {
       dispatch(setResponseAC(response, error));
+    },
+    getMovies: (movie, page) => {
+      dispatch(getMoviesThunkCreator(movie, page));
     },
   };
 };

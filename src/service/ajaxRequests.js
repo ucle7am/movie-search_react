@@ -11,3 +11,4 @@ export async function getMovieById(id) {
   const data = await res.json();
   return data;
 }
+export const fillArrayMoviesId = (arr) => arr.map((el) => el.imdbID);
