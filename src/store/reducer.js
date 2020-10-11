@@ -1,17 +1,15 @@
 import {
-  getMovies,
-  getMovieById,
-  fillArrayMoviesId,
-} from "../service/ajaxRequests";
-const CHANGE_INPUT_VALUE = "CHANGE_INPUT_VALUE";
-const TOGGLE_FETCH = "TOGGLE_FETCH";
-const TOGGLE_IS_ENGLISH = "TOGGLE_IS_ENGLISH";
-const ADD_MOVIE = "ADD_MOVIE";
-const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
-const SET_PAGE = "SET_PAGE";
-const RESET = "RESET";
-const TOGGLE_RESPONSE = "TOGGLE_RESPONSE";
-const SET_CURRENT_SEARCH = "SET_CURRENT_SEARCH";
+  CHANGE_INPUT_VALUE,
+  TOGGLE_FETCH,
+  TOGGLE_IS_ENGLISH,
+  ADD_MOVIE,
+  SET_TOTAL_PAGES,
+  SET_PAGE,
+  RESET,
+  TOGGLE_RESPONSE,
+  SET_CURRENT_SEARCH,
+} from "./types";
+
 const initialState = {
   inputValue: "",
   currentSearch: "",
@@ -82,58 +80,3 @@ const reducer = (state = initialState, action) => {
 };
 
 export default reducer;
-
-export const getMoviesThunkCreator = (movie, page) => {
-  return (dispatch) => {
-    dispatch(toggleFecthAC(true));
-    getMovies(movie, page).then((res) => {
-      if (res.Response === "True") {
-        dispatch(setResponseAC(true, ""));
-        dispatch(setTotalPagesAC(+res.totalResults));
-        fillArrayMoviesId(res.Search).forEach((el) => {
-          getMovieById(el).then((res) => dispatch(addMovieToStateAC(res)));
-        });
-      } else {
-        dispatch(setResponseAC(false, res.Error));
-      }
-
-      dispatch(toggleFecthAC(false));
-    });
-  };
-};
-export const changeInputAC = (value) => ({
-  type: CHANGE_INPUT_VALUE,
-  value,
-});
-export const setCurrentSearchAC = (value) => ({
-  type: SET_CURRENT_SEARCH,
-  value,
-});
-export const toggleFecthAC = (fetching) => ({
-  type: TOGGLE_FETCH,
-  fetching,
-});
-export const toggleEnglishAC = (isEnglish) => ({
-  type: TOGGLE_IS_ENGLISH,
-  isEnglish,
-});
-export const addMovieToStateAC = (movie) => ({
-  type: ADD_MOVIE,
-  movie,
-});
-export const resetAC = () => ({
-  type: RESET,
-});
-export const setTotalPagesAC = (totalResults) => ({
-  type: SET_TOTAL_PAGES,
-  totalResults,
-});
-export const setPageAC = (page) => ({
-  type: SET_PAGE,
-  page,
-});
-export const setResponseAC = (response, error) => ({
-  type: TOGGLE_RESPONSE,
-  response,
-  error,
-});

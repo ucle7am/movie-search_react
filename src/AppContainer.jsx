@@ -3,9 +3,9 @@ import {
   changeInputAC,
   resetAC,
   setPageAC,
-  getMoviesThunkCreator,
   setCurrentSearchAC,
-} from "./store/reducer";
+} from "./store/actions";
+import { getMoviesThunkCreator } from "./store/thunks";
 import AppApi from "./AppApi";
 const mapStateToProps = (state) => {
   return {
