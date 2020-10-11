@@ -5,7 +5,8 @@
   display: grid;
   grid-template-areas:
     "fetch h1 h1 h1"
-    "form form form form";
+    "form form form form"
+    "p p p p";
   box-shadow: 3px 37px 10px -23px rgba(0, 0, 0, 0.75);
 }
 .h1 {
@@ -38,4 +39,9 @@
   background-color: rgb(27, 131, 228);
   border: none;
   outline: none;
+}
+.p {
+  grid-area: p;
+  font-size: 25px;
+  padding: 15px;
 }

@@ -9,6 +9,7 @@ const SearchBar = ({
   inputValue,
   getNewMovies,
   setCurrentSearch,
+  current,
 }) => {
   const submit = (e) => {
     e.preventDefault();
@@ -29,6 +30,11 @@ const SearchBar = ({
         <Input changeInput={changeInput} inputValue={inputValue} />
         <Button />
       </form>
+      {current.length > 0 ? (
+        <p className={styles.p}>Showing results for '{current}'</p>
+      ) : (
+        <p className={styles.p}>Search something ^_^</p>
+      )}
     </header>
   );
 };
