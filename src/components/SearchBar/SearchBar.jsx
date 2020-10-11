@@ -12,7 +12,9 @@ const SearchBar = ({ isFetching, changeInput, inputValue, getNewMovies }) => {
     <header className={styles.header}>
       <h1 className={styles.h1}>MOVIE SEARCH</h1>
       {isFetching ? (
-        <LoadingSpinner className={styles.fetch} />
+        <div className={styles.fetch}>
+          <LoadingSpinner />
+        </div>
       ) : (
         <div className={styles.fetch} />
       )}

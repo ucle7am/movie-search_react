@@ -16,8 +16,8 @@
 }
 .fetch {
   grid-area: fetch;
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
 }
 .form {
   grid-area: form;
