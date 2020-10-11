@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Pagination.module.css";
 class Pagination extends React.Component {
   currentPagination(arr, current) {
     if (current >= 4 && current < arr.length - 3) {

@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "./Header/Header";
 import * as axios from "axios";
-import MainContainer from "./Main/MainContainer";
 import App from "./App";
 
 class AppApi extends React.Component {
@@ -49,25 +47,11 @@ class AppApi extends React.Component {
   }
   render() {
     return (
-      <>
-        <Header
-          hasResponse={this.props.hasResponse}
-          error={this.props.error}
-          getMovies={this.getNewMovies.bind(this)}
-          isFetching={this.props.isFetching}
-          inputValue={this.props.inputValue}
-          changeInput={this.props.changeInput}
-          isEnglish={this.props.isEnglish}
-        />
-        <MainContainer
-          getMovies={this.getMovies.bind(this)}
-          movieArr={this.props.movieArr}
-          totalPages={this.props.totalPages}
-          currentPage={this.props.page}
-          setPage={this.props.setPage}
-        />
-        <App {...this.props} getMovies={this.getMovies.bind(this)} />
-      </>
+      <App
+        {...this.props}
+        getMovies={this.getMovies.bind(this)}
+        getNewMovies={this.getNewMovies.bind(this)}
+      />
     );
   }
 }

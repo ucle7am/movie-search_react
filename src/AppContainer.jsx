@@ -8,8 +8,8 @@ import {
   setTotalPagesAC,
   setPageAC,
   setResponseAC,
-} from "../../store/reducer";
-import appApi from "./appApi";
+} from "./store/reducer";
+import AppApi from "./AppApi";
 const mapStateToProps = (state) => {
   return {
     inputValue: state.inputValue,
@@ -50,5 +50,5 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(appApi);
+const AppContainer = connect(mapStateToProps, mapDispatchToProps)(AppApi);
 export default AppContainer;
