@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
 import AppContainer from "./components/Aplication/AppContainer";
+import SearchBar from "./components/SearchBar/SearchBar";
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="container">
-      <AppContainer />
+      {/*<AppContainer />*/}
+      <SearchBar />
     </div>
   );
 };

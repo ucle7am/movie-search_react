@@ -1,0 +1,39 @@
+.header {
+  background-color: black;
+  padding: 20px;
+  color: #fff;
+  display: grid;
+  grid-template-areas:
+    "fetch h1 h1 h1"
+    "form form form form";
+  box-shadow: 3px 37px 10px -23px rgba(0, 0, 0, 0.75);
+}
+.h1 {
+  grid-area: h1;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+.fetch {
+  grid-area: fetch;
+  width: 100px;
+  height: 100px;
+}
+.form {
+  grid-area: form;
+}
+.input {
+  font-size: 25px;
+  padding-left: 15px;
+  grid-area: input;
+  border: none;
+  outline: none;
+}
+.search {
+  color: #fff;
+  font-size: 25px;
+  grid-area: search;
+  background-color: rgb(27, 131, 228);
+  border: none;
+  outline: none;
+}
