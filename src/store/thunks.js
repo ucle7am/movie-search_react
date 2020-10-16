@@ -6,7 +6,7 @@ import {
 import {
   toggleFecthAC,
   setTotalPagesAC,
-  addMovieToStateAC,
+  addMoviesToStateAC,
   setResponseAC,
   resetAC,
 } from "./actions";
@@ -15,17 +15,22 @@ export const getMoviesThunkCreator = (movie, page) => {
   return (dispatch) => {
     dispatch(toggleFecthAC(true));
     getMovies(movie, page).then((res) => {
+      let arr;
       if (res.Response === "True") {
         dispatch(setResponseAC(true, ""));
         dispatch(setTotalPagesAC(+res.totalResults));
-        fillArrayMoviesId(res.Search).forEach((el) => {
-          getMovieById(el).then((res) => dispatch(addMovieToStateAC(res)));
+        arr = fillArrayMoviesId(res.Search).map((el) => {
+          return getMovieById(el);
+        });
+
+        let b = Promise.all(arr);
+        b.then((res) => {
+          dispatch(addMoviesToStateAC(res));
+          dispatch(toggleFecthAC(false));
         });
       } else {
         dispatch(setResponseAC(false, res.Error));
       }
-
-      dispatch(toggleFecthAC(false));
     });
   };
 };

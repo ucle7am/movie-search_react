@@ -2,7 +2,7 @@ import {
   CHANGE_INPUT_VALUE,
   TOGGLE_FETCH,
   TOGGLE_IS_ENGLISH,
-  ADD_MOVIE,
+  ADD_MOVIES,
   SET_TOTAL_PAGES,
   SET_PAGE,
   RESET,
@@ -49,10 +49,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         isEnglish: action.isEnglish,
       };
-    case ADD_MOVIE:
+    case ADD_MOVIES:
       return {
         ...state,
-        movieArr: [...state.movieArr, action.movie],
+        movieArr: [...action.movies],
       };
     case SET_PAGE:
       return {

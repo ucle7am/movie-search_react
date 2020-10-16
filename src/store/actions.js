@@ -2,7 +2,7 @@ import {
   CHANGE_INPUT_VALUE,
   TOGGLE_FETCH,
   TOGGLE_IS_ENGLISH,
-  ADD_MOVIE,
+  ADD_MOVIES,
   SET_TOTAL_PAGES,
   SET_PAGE,
   RESET,
@@ -25,9 +25,9 @@ export const toggleEnglishAC = (isEnglish) => ({
   type: TOGGLE_IS_ENGLISH,
   isEnglish,
 });
-export const addMovieToStateAC = (movie) => ({
-  type: ADD_MOVIE,
-  movie,
+export const addMoviesToStateAC = (movies) => ({
+  type: ADD_MOVIES,
+  movies,
 });
 export const resetAC = () => ({
   type: RESET,
