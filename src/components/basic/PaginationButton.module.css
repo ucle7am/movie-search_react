@@ -1,0 +1,27 @@
+.button {
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 29px;
+  margin: 10px;
+  color: #fff;
+  border: 2px solid rgb(27, 131, 228);
+  background-color: inherit;
+  outline: none;
+}
+.buttonActive {
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 29px;
+  margin: 10px;
+  color: #fff;
+  border: 2px solid rgb(27, 131, 228);
+  background-color: rgb(27, 131, 228);
+  transform: scale(1.2);
+  outline: none;
+}
+.button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  border: 2px solid rgb(27, 131, 228);
+  background-color: rgb(27, 131, 228);
+}
