@@ -15,16 +15,14 @@ export const getMoviesThunkCreator = (movie, page) => {
   return (dispatch) => {
     dispatch(toggleFecthAC(true));
     getMovies(movie, page).then((res) => {
-      let arr;
       if (res.Response === "True") {
         dispatch(setResponseAC(true, ""));
         dispatch(setTotalPagesAC(+res.totalResults));
-        arr = fillArrayMoviesId(res.Search).map((el) => {
+        const promiseArray = fillArrayMoviesId(res.Search).map((el) => {
           return getMovieById(el);
         });
-
-        let b = Promise.all(arr);
-        b.then((res) => {
+        const promiseArrayResolved = Promise.all(promiseArray);
+        promiseArrayResolved.then((res) => {
           dispatch(addMoviesToStateAC(res));
           dispatch(toggleFecthAC(false));
         });
