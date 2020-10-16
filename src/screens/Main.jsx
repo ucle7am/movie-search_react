@@ -4,7 +4,6 @@ import MovieList from "../components/MovieList/MovieList";
 import Pagination from "../components/Pagination/Pagination";
 
 const Main = ({ movieArr, ...props }) => {
-  console.log("RENDER MAIN");
   return (
     <div>
       {props.hasResponse && !props.isFetching ? (
