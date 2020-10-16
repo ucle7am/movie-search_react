@@ -3,12 +3,13 @@ import styles from "./Main.module.css";
 import MovieList from "../components/MovieList/MovieList";
 import Pagination from "../components/Pagination/Pagination";
 
-const Main = (props) => {
+const Main = ({ movieArr, ...props }) => {
+  console.log("RENDER MAIN");
   return (
     <div>
       {props.hasResponse && !props.isFetching ? (
         <>
-          <MovieList {...props} />
+          <MovieList movieArr={movieArr} {...props} />
           <Pagination {...props} />
         </>
       ) : (

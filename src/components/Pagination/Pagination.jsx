@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Pagination.module.css";
 import PaginationButton from "../basic/PaginationButton";
-class Pagination extends React.Component {
+class Pagination extends React.PureComponent {
   currentPagination(arr, current) {
     if (current >= 4 && current < arr.length - 3) {
       return arr.slice(current - 3, current + 2);
