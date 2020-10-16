@@ -8,7 +8,9 @@ import {
   setTotalPagesAC,
   addMovieToStateAC,
   setResponseAC,
+  resetAC,
 } from "./actions";
+
 export const getMoviesThunkCreator = (movie, page) => {
   return (dispatch) => {
     dispatch(toggleFecthAC(true));
@@ -25,5 +27,11 @@ export const getMoviesThunkCreator = (movie, page) => {
 
       dispatch(toggleFecthAC(false));
     });
+  };
+};
+export const getNewMoviesThunkCreator = (movie) => {
+  return (dispatch) => {
+    dispatch(resetAC());
+    dispatch(getMoviesThunkCreator(movie, 1));
   };
 };

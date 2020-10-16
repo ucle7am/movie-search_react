@@ -14,7 +14,6 @@ const initialState = {
   inputValue: "",
   currentSearch: "",
   isFetching: false,
-  isEnglish: false,
   hasResponse: "",
   error: "",
   movieArr: [],

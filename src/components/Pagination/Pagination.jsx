@@ -46,7 +46,7 @@ class Pagination extends React.Component {
           onClick={() => {
             if (this.props.page !== i) {
               this.props.setPage(i);
-              this.props.getMovies(i);
+              this.props.getMovies(this.props.current, i);
             }
           }}
         >

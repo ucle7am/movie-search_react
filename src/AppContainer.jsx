@@ -5,8 +5,11 @@ import {
   setPageAC,
   setCurrentSearchAC,
 } from "./store/actions";
-import { getMoviesThunkCreator } from "./store/thunks";
-import AppApi from "./AppApi";
+import {
+  getMoviesThunkCreator,
+  getNewMoviesThunkCreator,
+} from "./store/thunks";
+import App from "./App";
 const mapStateToProps = (state) => {
   return {
     inputValue: state.inputValue,
@@ -34,10 +37,13 @@ const mapDispatchToProps = (dispatch) => {
     getMovies: (movie, page) => {
       dispatch(getMoviesThunkCreator(movie, page));
     },
+    getNewMovies: (movie) => {
+      dispatch(getNewMoviesThunkCreator(movie));
+    },
     setCurrentSearch: (value) => {
       dispatch(setCurrentSearchAC(value));
     },
   };
 };
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(AppApi);
+const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
 export default AppContainer;
