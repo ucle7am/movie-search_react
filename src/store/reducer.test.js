@@ -1,5 +1,11 @@
 import reducer from "./reducer";
-import { changeInputAC, setCurrentSearchAC, toggleFecthAC } from "./actions";
+import {
+  addMoviesToStateAC,
+  changeInputAC,
+  setCurrentSearchAC,
+  setTotalPagesAC,
+  toggleFecthAC,
+} from "./actions";
 
 test("add chars to input", () => {
   const state = {
@@ -24,4 +30,22 @@ test("toggle fetching", () => {
   const action = toggleFecthAC(true);
   let newState = reducer(state, action);
   expect(newState.isFetching).toBe(true);
+});
+test("add movies", () => {
+  const state = {
+    movieArr: [],
+  };
+  const movies = new Array(10).fill("movie");
+  const action = addMoviesToStateAC(movies);
+  let newState = reducer(state, action);
+  expect(newState.movieArr.length).toBe(10);
+});
+
+test("add movies", () => {
+  const state = {
+    totalPages: 0,
+  };
+  const action = setTotalPagesAC(60);
+  let newState = reducer(state, action);
+  expect(newState.totalPages).toBe(6);
 });
