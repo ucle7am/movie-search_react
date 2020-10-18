@@ -4,3 +4,8 @@
   color: #ffffff;
   background-color: #000;
 }
+@media (max-width: 500px) {
+  .error {
+    font-size: 30px;
+  }
+}

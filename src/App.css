@@ -15,3 +15,8 @@
   background-attachment: fixed;
   min-height: 100vh;
 }
+@media (max-width: 1150px) {
+  .container {
+    padding: 0 5%;
+  }
+}

@@ -10,7 +10,7 @@ const Input = ({ changeInput, inputValue }) => {
       pattern={"^[a-zA-Z0-9$@$!%*?&#^-_. +]+$"}
       value={inputValue}
       onChange={change}
-      maxLength={39}
+      maxLength={20}
       className={styles.input}
       type="text"
     />

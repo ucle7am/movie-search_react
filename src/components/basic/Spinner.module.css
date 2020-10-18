@@ -39,3 +39,11 @@
     transform: rotate(360deg);
   }
 }
+@media (max-width: 500px) {
+  .loader,
+  .loader:after {
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+  }
+}
