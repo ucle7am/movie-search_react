@@ -19,6 +19,7 @@ class Pagination extends React.PureComponent {
       .fill(0)
       .map((el, i) => (
         <PaginationButton
+          key={i}
           i={i}
           setPage={this.props.setPage}
           getMovies={this.props.getMovies}
@@ -30,6 +31,7 @@ class Pagination extends React.PureComponent {
     return this.props.totalPages
       ? [
           <PaginationButton
+            key={"start"}
             i={"start"}
             setPage={this.props.setPage}
             getMovies={this.props.getMovies}
@@ -38,6 +40,7 @@ class Pagination extends React.PureComponent {
           ...this.currentPagination(allPagesPagination, this.props.page),
           <PaginationButton
             i={"end"}
+            key={"end"}
             setPage={this.props.setPage}
             getMovies={this.props.getMovies}
             current={this.props.current}
