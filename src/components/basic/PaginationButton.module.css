@@ -25,3 +25,29 @@
   border: 2px solid rgb(27, 131, 228);
   background-color: rgb(27, 131, 228);
 }
+@media (max-width: 550px) {
+  .button {
+    padding: 9px;
+    font-size: 23px;
+    margin: 5px;
+  }
+  .buttonActive {
+    padding: 9px;
+    font-size: 23px;
+    margin: 5px;
+    transform: none;
+  }
+}
+@media (max-width: 350px) {
+  .button {
+    padding: 7px;
+    font-size: 23px;
+    margin: 5px;
+  }
+  .buttonActive {
+    padding: 7px;
+    font-size: 23px;
+    margin: 5px;
+    transform: none;
+  }
+}

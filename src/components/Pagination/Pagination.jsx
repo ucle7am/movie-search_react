@@ -32,14 +32,14 @@ class Pagination extends React.PureComponent {
       ? [
           <PaginationButton
             key={"start"}
-            i={"start"}
+            i={"<"}
             setPage={this.props.setPage}
             getMovies={this.props.getMovies}
             current={this.props.current}
           />,
           ...this.currentPagination(allPagesPagination, this.props.page),
           <PaginationButton
-            i={"end"}
+            i={">"}
             key={"end"}
             setPage={this.props.setPage}
             getMovies={this.props.getMovies}

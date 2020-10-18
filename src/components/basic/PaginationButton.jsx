@@ -10,11 +10,11 @@ const PaginationButton = ({
   totalPages,
 }) => {
   const onClick = () => {
-    if (i === "start") {
+    if (i === "<") {
       setPage(1);
       getMovies(current, 1);
     }
-    if (i === "end") {
+    if (i === ">") {
       setPage(totalPages);
       getMovies(current, totalPages);
     }
@@ -28,7 +28,7 @@ const PaginationButton = ({
       className={page === i + 1 ? styles.buttonActive : styles.button}
       onClick={onClick}
     >
-      {i === "end" || i === "start" ? i : i + 1}
+      {i === "<" || i === ">" ? i : i + 1}
     </button>
   );
 };
