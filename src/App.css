@@ -16,11 +16,20 @@
   background-attachment: fixed;
   min-height: 100vh;
 }
+.shadow {
+  z-index: 555;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: rgba(110, 110, 110, 0.7);
+}
 .popUp {
   position: absolute;
-  margin: 0 auto;
-  width: 500px;
+  left: 10%;
+  width: 80%;
   height: 500px;
+  z-index: 777;
   background-color: red;
 }
 @media (max-width: 1150px) {
