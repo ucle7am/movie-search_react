@@ -21,8 +21,9 @@ const MovieCard = ({
       <div>
         <img
           style={loaded ? {} : { display: "none" }}
+          style={Poster === "N/A" ? { cursor: "inherit" } : {}}
           onLoad={() => setLoaded(true)}
-          onClick={() => setPopUpImg(Poster)}
+          onClick={Poster !== "N/A" ? () => setPopUpImg(Poster) : null}
           className={styles.poster}
           src={Poster !== "N/A" ? Poster : noPoster}
           alt="..."
