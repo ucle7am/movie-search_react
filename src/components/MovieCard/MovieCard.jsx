@@ -14,6 +14,7 @@ const MovieCard = ({
   imdbID,
 }) => {
   const [loaded, setLoaded] = useState(false);
+  const redactedGenre = Genre.split(",").slice(0, 2).join(",");
   return (
     <div className={styles.movie}>
       <div>
@@ -35,7 +36,7 @@ const MovieCard = ({
         <p className={styles.name}>{Title}</p>
         <span className={styles.year}>{Year}</span>
         <span className={styles.runtime}>{Runtime}</span>
-        <span className={styles.genre}>{Genre}</span>
+        <span className={styles.genre}>{redactedGenre}</span>
         <p className={styles.plot}>{Plot}</p>
         <p className={styles.rating}>
           Rating{" "}

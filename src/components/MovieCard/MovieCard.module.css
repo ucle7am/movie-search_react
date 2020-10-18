@@ -80,6 +80,7 @@
   display: block;
   font-size: 20px;
   padding-top: 25px;
+  width: 130px;
 }
 .ratingGreen {
   padding: 4px;
@@ -106,4 +107,83 @@
 }
 .loading {
   margin: 140px 80px;
+}
+@media (max-width: 1050px) {
+  .poster {
+    width: 250px;
+  }
+  .trailerLink {
+    width: 130px;
+  }
+  .watchLink {
+    width: 130px;
+  }
+}
+@media (max-width: 850px) {
+  .genre {
+    text-align: right;
+  }
+}
+@media (max-width: 800px) {
+  .movieCard {
+    padding: 15px;
+    grid-template-areas:
+      "name name name name name"
+      "year runtime runtime genre genre"
+      "plot plot plot plot plot"
+      "rating rating rating rating rating"
+      "trailer trailer trailer watch watch";
+  }
+  .plot {
+    padding-top: 5px;
+  }
+  .runtime {
+    text-align: center;
+  }
+  .name {
+    font-size: 35px;
+  }
+}
+@media (max-width: 640px) {
+  .poster {
+    width: 150px;
+  }
+}
+@media (max-width: 500px) {
+  .movieCard {
+    padding: 15px;
+    grid-template-areas:
+      "name name name name name"
+      "year year runtime runtime runtime"
+      "genre genre genre genre genre"
+      "plot plot plot plot plot"
+      "rating rating rating rating rating"
+      "trailer trailer trailer trailer trailer"
+      "watch watch watch watch watch";
+  }
+  .genre {
+    text-align: left;
+  }
+  .trailerLink {
+    margin: 0;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .watchLink {
+    margin: 0;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  .poster {
+    width: 100px;
+  }
+}
+@media (max-width: 400px) {
+  .name {
+    font-size: 25px;
+  }
 }
