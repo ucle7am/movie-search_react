@@ -8,6 +8,10 @@ const App = ({ movieArr, ...props }) => {
     <div className="container">
       <SearchBar {...props} />
       <Main movieArr={movieArr} {...props} />
+      <div
+        style={/*props.popUpImg.length*/ 1 > 0 ? {} : { display: "none" }}
+        className="popUp"
+      ></div>
     </div>
   );
 };

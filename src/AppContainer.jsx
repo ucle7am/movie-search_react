@@ -4,6 +4,7 @@ import {
   resetAC,
   setPageAC,
   setCurrentSearchAC,
+  setPopUpImgAC,
 } from "./store/actions";
 import {
   getMoviesThunkCreator,
@@ -21,6 +22,7 @@ const mapStateToProps = (state) => {
     hasResponse: state.hasResponse,
     error: state.error,
     current: state.currentSearch,
+    popUpImg: state.popUpImg,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -42,6 +44,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setCurrentSearch: (value) => {
       dispatch(setCurrentSearchAC(value));
+    },
+    setPopUpImg: (src) => {
+      dispatch(setPopUpImgAC(src));
     },
   };
 };
