@@ -24,11 +24,11 @@ export const getMoviesThunkCreator = (movie, page) => {
         const promiseArrayResolved = Promise.all(promiseArray);
         promiseArrayResolved.then((res) => {
           dispatch(addMoviesToStateAC(res));
-          dispatch(toggleFecthAC(false));
         });
       } else {
         dispatch(setResponseAC(false, res.Error));
       }
+      dispatch(toggleFecthAC(false));
     });
   };
 };
