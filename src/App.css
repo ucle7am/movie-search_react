@@ -23,6 +23,9 @@
   position: fixed;
   top: 0;
   background-color: rgba(110, 110, 110, 0.7);
+  transition: 0.6s;
+  animation-name: pulse;
+  animation-duration: 0.6s;
 }
 .popUp {
   position: fixed;
@@ -36,8 +39,7 @@
   width: 100%;
   cursor: zoom-out;
 }
-.popUp,
-.shadow {
+.popUp {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
@@ -49,7 +51,14 @@
     transform: scale(1);
   }
 }
-
+@keyframes pulse {
+  0% {
+    background-color: inherit;
+  }
+  100% {
+    background-color: rgba(110, 110, 110, 0.7);
+  }
+}
 @media (max-width: 1150px) {
   .container {
     padding: 0 5%;
