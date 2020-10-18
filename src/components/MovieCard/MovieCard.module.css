@@ -75,6 +75,9 @@
   width: 300px;
   display: block;
 }
+.poster:hover {
+  cursor: zoom-in;
+}
 .rating {
   grid-area: rating;
   display: block;

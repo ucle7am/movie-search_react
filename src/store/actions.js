@@ -8,7 +8,12 @@ import {
   RESET,
   TOGGLE_RESPONSE,
   SET_CURRENT_SEARCH,
+  SET_POP_UP_IMG,
 } from "./types";
+export const setPopUpImgAC = (src) => ({
+  type: SET_POP_UP_IMG,
+  src,
+});
 export const changeInputAC = (value) => ({
   type: CHANGE_INPUT_VALUE,
   value,

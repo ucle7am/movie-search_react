@@ -21,6 +21,7 @@ const MovieCard = ({
         <img
           style={loaded ? {} : { display: "none" }}
           onLoad={() => setLoaded(true)}
+          onClick={() => console.log("poster click")}
           className={styles.poster}
           src={Poster !== "N/A" ? Poster : noPoster}
           alt="..."

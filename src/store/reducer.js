@@ -8,6 +8,7 @@ import {
   RESET,
   TOGGLE_RESPONSE,
   SET_CURRENT_SEARCH,
+  SET_POP_UP_IMG,
 } from "./types";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   currentSearch: "",
   isFetching: false,
   hasResponse: "",
+  popUpImg: "",
   error: "",
   movieArr: [],
   page: 1,
@@ -23,6 +25,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_POP_UP_IMG:
+      return {
+        ...state,
+        popUpImg: action.src,
+      };
     case CHANGE_INPUT_VALUE:
       return {
         ...state,

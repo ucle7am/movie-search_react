@@ -5,6 +5,7 @@ import {
   setCurrentSearchAC,
   setTotalPagesAC,
   toggleFecthAC,
+  setPopUpImgAC,
 } from "./actions";
 
 test("add chars to input", () => {
@@ -48,4 +49,12 @@ test("set total pages", () => {
   const action = setTotalPagesAC(60);
   let newState = reducer(state, action);
   expect(newState.totalPages).toBe(6);
+});
+test("set pop up img", () => {
+  const state = {
+    popUpImg: "",
+  };
+  const action = setPopUpImgAC("src");
+  let newState = reducer(state, action);
+  expect(newState.popUpImg).toBe("src");
 });

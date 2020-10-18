@@ -7,3 +7,4 @@ export const SET_PAGE = "SET_PAGE";
 export const RESET = "RESET";
 export const TOGGLE_RESPONSE = "TOGGLE_RESPONSE";
 export const SET_CURRENT_SEARCH = "SET_CURRENT_SEARCH";
+export const SET_POP_UP_IMG = "SET_POP_UP_IMG";
