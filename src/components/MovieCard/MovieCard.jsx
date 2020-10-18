@@ -12,6 +12,7 @@ const MovieCard = ({
   Plot,
   imdbRating,
   imdbID,
+  setPopUpImg,
 }) => {
   const [loaded, setLoaded] = useState(false);
   const redactedGenre = Genre.split(",").slice(0, 2).join(",");
@@ -21,7 +22,7 @@ const MovieCard = ({
         <img
           style={loaded ? {} : { display: "none" }}
           onLoad={() => setLoaded(true)}
-          onClick={() => console.log("poster click")}
+          onClick={() => setPopUpImg(Poster)}
           className={styles.poster}
           src={Poster !== "N/A" ? Poster : noPoster}
           alt="..."

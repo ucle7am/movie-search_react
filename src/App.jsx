@@ -10,11 +10,20 @@ const App = ({ movieArr, ...props }) => {
         <SearchBar {...props} />
         <Main movieArr={movieArr} {...props} />
         <div
-          style={/*props.popUpImg.length*/ 1 > 0 ? {} : { display: "none" }}
+          style={props.popUpImg.length > 0 ? {} : { display: "none" }}
           className="popUp"
-        ></div>
+        >
+          <img
+            onClick={() => props.setPopUpImg("")}
+            src={props.popUpImg}
+            alt="..."
+          />
+        </div>
       </div>
-      <div className="shadow"></div>
+      <div
+        style={props.popUpImg.length > 0 ? {} : { display: "none" }}
+        className="shadow"
+      ></div>
     </>
   );
 };
