@@ -41,7 +41,7 @@ test("add movies", () => {
   expect(newState.movieArr.length).toBe(10);
 });
 
-test("add movies", () => {
+test("set total pages", () => {
   const state = {
     totalPages: 0,
   };
