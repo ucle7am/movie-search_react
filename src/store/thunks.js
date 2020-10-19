@@ -12,24 +12,19 @@ import {
 } from "./actions";
 
 export const getMoviesThunkCreator = (movie, page) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(toggleFecthAC(true));
-    getMovies(movie, page).then((res) => {
-      if (res.Response === "True") {
-        dispatch(setResponseAC(true, ""));
-        dispatch(setTotalPagesAC(+res.totalResults));
-        const promiseArray = fillArrayMoviesId(res.Search).map((el) => {
-          return getMovieById(el);
-        });
-        const promiseArrayResolved = Promise.all(promiseArray);
-        promiseArrayResolved.then((res) => {
-          dispatch(addMoviesToStateAC(res));
-        });
-      } else {
-        dispatch(setResponseAC(false, res.Error));
-      }
-      dispatch(toggleFecthAC(false));
-    });
+    const movies = await getMovies(movie, page);
+    if (movies.Response === "True") {
+      dispatch(setResponseAC(true, ""));
+      dispatch(setTotalPagesAC(+movies.totalResults));
+      const promiseArray = fillArrayMoviesId(movies.Search).map((el) => getMovieById(el));
+      const promiseArrayResolvedMovies = await Promise.all(promiseArray);
+      dispatch(addMoviesToStateAC(promiseArrayResolvedMovies));
+    }else {
+      dispatch(setResponseAC(false, movies.Error));
+    }
+    dispatch(toggleFecthAC(false));
   };
 };
 export const getNewMoviesThunkCreator = (movie) => {
