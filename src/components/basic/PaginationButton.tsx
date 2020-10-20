@@ -1,7 +1,16 @@
 import React from "react";
 import styles from "./PaginationButton.module.css";
 
-const PaginationButton = ({
+interface InputProps{
+  i: any,
+  setPage(title:number): void,
+  getMovies(title:string,next:number): void,
+  current:string,
+  page:number,
+  totalPages:number
+}
+
+const PaginationButton:React.FC<InputProps> = ({
   i,
   setPage,
   getMovies,

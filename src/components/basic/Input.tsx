@@ -1,7 +1,12 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styles from "./Input.module.css";
-const Input = ({ changeInput, inputValue }) => {
-  const change = (e) => {
+
+interface InputProps{
+  changeInput(title: string) : void,
+  inputValue: string,
+}
+const Input:React.FC<InputProps> = ({ changeInput, inputValue }) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
     changeInput(e.target.value);
   };
   return (
