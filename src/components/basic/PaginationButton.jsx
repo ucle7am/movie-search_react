@@ -18,17 +18,17 @@ const PaginationButton = ({
       setPage(totalPages);
       getMovies(current, totalPages);
     }
-    if (page !== i + 1 && typeof i === "number") {
-      setPage(i + 1);
-      getMovies(current, i + 1);
+    if (page !== i && typeof i === "number") {
+      setPage(i);
+      getMovies(current, i);
     }
   };
   return (
     <button
-      className={page === i + 1 ? styles.buttonActive : styles.button}
+      className={page === i ? styles.buttonActive : styles.button}
       onClick={onClick}
     >
-      {i === "<" || i === ">" ? i : i + 1}
+      {i}
     </button>
   );
 };
