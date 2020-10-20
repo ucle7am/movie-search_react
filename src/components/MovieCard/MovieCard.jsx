@@ -15,7 +15,7 @@ const MovieCard = ({
   setPopUpImg,
 }) => {
   const [loaded, setLoaded] = useState(false);
-  const redactedGenre = Genre.split(",").slice(0, 2).join(",");
+  const redactedGenre = Genre ? Genre.split(",").slice(0, 2).join(","): Genre;
   return (
     <div className={styles.movie}>
       <div>
@@ -36,7 +36,7 @@ const MovieCard = ({
         </div>
       </div>
       <div className={styles.movieCard}>
-        <p className={styles.name}>{Title}</p>
+        <h3 className={styles.name}>{Title}</h3>
         <span className={styles.year}>{Year}</span>
         <span className={styles.runtime}>{Runtime}</span>
         <span className={styles.genre}>{redactedGenre}</span>

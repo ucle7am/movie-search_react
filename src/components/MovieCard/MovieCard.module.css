@@ -65,6 +65,7 @@
 .name {
   font-size: 45px;
   grid-area: name;
+  font-weight: normal;
 }
 .year {
   font-size: 20px;
