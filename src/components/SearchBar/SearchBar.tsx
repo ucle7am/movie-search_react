@@ -3,7 +3,16 @@ import Button from "../basic/Button";
 import Input from "../basic/Input";
 import LoadingSpinner from "../basic/LoadingSpinner";
 import styles from "./SearchBar.module.css";
-const SearchBar = React.memo(
+
+interface SearchBarProps{
+  isFetching: boolean,
+  changeInput(title: string) : void,
+  inputValue: string,
+  getNewMovies(title: string) : void,
+  setCurrentSearch(title: string) : void,
+  current: string,
+}
+const SearchBar: React.FC<SearchBarProps> = React.memo(
   ({
     isFetching,
     changeInput,
@@ -12,7 +21,7 @@ const SearchBar = React.memo(
     setCurrentSearch,
     current,
   }) => {
-    const submit = (e) => {
+    const submit = (e: React.FormEvent) => {
       e.preventDefault();
       setCurrentSearch(inputValue);
       getNewMovies(inputValue);

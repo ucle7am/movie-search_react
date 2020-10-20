@@ -11,18 +11,8 @@ import {
   getNewMoviesThunkCreator,
 } from "./store/thunks";
 import App from "./App";
-interface stateToPros {
-  inputValue:string,
-  isFetching:boolean,
-  movieArr: Array<object>,
-  page: number,
-  totalPages: number,
-  hasResponse: string,
-  error: string,
-  currentSearch: string,
-  popUpImg: string,
-}
-const mapStateToProps = (state:stateToPros) => {
+
+const mapStateToProps = (state) => {
   return {
     inputValue: state.inputValue,
     isFetching: state.isFetching,
@@ -35,27 +25,27 @@ const mapStateToProps = (state:stateToPros) => {
     popUpImg: state.popUpImg,
   };
 };
-const mapDispatchToProps = (dispatch:Function) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    changeInput: (text:string) => {
+    changeInput: (text) => {
       dispatch(changeInputAC(text));
     },
     reset: () => {
       dispatch(resetAC());
     },
-    setPage: (page: number) => {
+    setPage: (page) => {
       dispatch(setPageAC(page));
     },
-    getMovies: (movie:string, page:number) => {
+    getMovies: (movie, page) => {
       dispatch(getMoviesThunkCreator(movie, page));
     },
-    getNewMovies: (movie:string) => {
+    getNewMovies: (movie) => {
       dispatch(getNewMoviesThunkCreator(movie));
     },
-    setCurrentSearch: (value:number) => {
+    setCurrentSearch: (value) => {
       dispatch(setCurrentSearchAC(value));
     },
-    setPopUpImg: (src:string) => {
+    setPopUpImg: (src) => {
       dispatch(setPopUpImgAC(src));
     },
   };
