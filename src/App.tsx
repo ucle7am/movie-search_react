@@ -4,7 +4,7 @@ import Main from "./screens/Main";
 import SearchBar from "./components/SearchBar/SearchBar";
 
 interface AppProps{
-  movieArr: Array<any>,
+  movieArr: Array<object>,
   setPopUpImg(title: string) : void,
   popUpImg: string,
   isFetching: boolean,
