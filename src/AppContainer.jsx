@@ -11,11 +11,11 @@ import {
   getNewMoviesThunkCreator,
 } from "./store/thunks";
 import App from "./App";
+
 const mapStateToProps = (state) => {
   return {
     inputValue: state.inputValue,
     isFetching: state.isFetching,
-    isEnglish: state.isEnglish,
     movieArr: state.movieArr,
     page: state.page,
     totalPages: state.totalPages,

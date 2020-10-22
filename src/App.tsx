@@ -3,7 +3,18 @@ import "./App.css";
 import Main from "./screens/Main";
 import SearchBar from "./components/SearchBar/SearchBar";
 
-const App = ({ movieArr, ...props }) => {
+interface AppProps{
+  movieArr: Array<object>,
+  setPopUpImg(title: string) : void,
+  popUpImg: string,
+  isFetching: boolean,
+  changeInput(title: string) : void,
+  inputValue: string,
+  getNewMovies(title: string) : void,
+  setCurrentSearch(title: string) : void,
+  current: string,
+}
+const App: React.FC<AppProps> = ({ movieArr, ...props }) => {
   return (
     <>
       <div className="container">

@@ -16,7 +16,6 @@ class Pagination extends React.PureComponent {
   paginationAllPages() {
     const allPages = new Array(this.props.totalPages).fill(0);
     const allPagesPagination = allPages.map((el,i) => i + 1)
-    console.log(allPagesPagination);
     const allPagesButtons  = allPagesPagination.map((el) => (
         <PaginationButton
           key={el}
